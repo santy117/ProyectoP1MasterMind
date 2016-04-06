@@ -2,11 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <time.h>
 
 void partida(){
 	char cadena[5];
 	int i;
 	int control_errores;
+	int n_aleat[5];
+	srand(time(NULL));//srand evita que vuelvan a salir los mismos numeros
+	for(int i=0;i<4;i++){
+		n_aleat[i]=(rand()%10);   // genera numeros de -10 a 10
+	}
+	printf("Numero secreto: ");
+	for(int i=0;i<4;i++){
+		printf(" %i",n_aleat[i]); //para double %e o %d
+	}
+	printf("\n\n");
+
 do{
 	control_errores=0;
 	printf("Introduzca una cadena de 4 digitos[_ _ _ _]\n");
@@ -25,5 +38,4 @@ do{
 	}
 }while(control_errores==1);
 
-printf("\n\t|        |\n\t|        |\n\t|        |\n\t|        |\n\t|        |\n\t|        |\nIntroduzca un numero:    ");
 }
