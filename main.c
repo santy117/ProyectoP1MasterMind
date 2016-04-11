@@ -31,9 +31,9 @@ int main(int argc,char* argv[]){
 	char respuesta;
 	char numero;
 
+	do{
 	caratula();
 
-	do{
 	printf("\n1)Jugar partida\n2)Jugar partida de prueba\n3)Establecer nivel de dificultad\n4)Listar historial de partidas\n0)Salir del programa\n\nSiguiente operacion?\n");
 	scanf(" %c",&numero);
 	
