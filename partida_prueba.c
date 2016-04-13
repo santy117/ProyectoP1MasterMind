@@ -5,32 +5,26 @@
 #include <math.h>
 #include <time.h>
 
-void partida(int dificultad){
+void partida_prueba(){
 	char cadena[5];
 	int i,contador,correcto=0;
 	int control_errores;
-	int n_aleat[5],cadena_int[5];
-	srand(time(NULL));
-	//Creacion de fichero
-	FILE *pf;
-	pf=fopen("partidas.txt","a");
-	fprintf(pf,"Probando...");
+	int numero[5],cadena_int[5];
 
-	// Genera un numero aleatorio de 4 digitos que no se repiten entre ellos.
-		do{
+		printf("Esto es una partida de prueba, que genera un numero aleatorio predefinido.\n");
+	
 		for(int i=0;i<4;i++){
-			n_aleat[i]=(rand()%10); 
-		 } // genera numeros de -10 a 10
-		}while(n_aleat[0]==n_aleat[1] || n_aleat[0]==n_aleat[2] || n_aleat[0]==n_aleat[3] || n_aleat[1]==n_aleat[2] || n_aleat[1]==n_aleat[3] || n_aleat[2]==n_aleat[3]);
+			numero[i]=(i+1); 
+		 }
 	
 	printf("Numero secreto: ");
 	for(int i=0;i<4;i++){
-		printf(" %i",n_aleat[i]); //para double %e o %d
+		printf(" %i",numero[i]); //para double %e o %d
 	}
 	printf("\n\n");
 
 // Control de errores a la hora de introducir una cadena
-for(contador=1;contador<=dificultad;contador++){
+for(contador=1;contador<=100;contador++){
 	do{
 		correcto=0;
 		control_errores=0;
@@ -39,13 +33,13 @@ for(contador=1;contador<=dificultad;contador++){
 		if(cadena[4]!='\0'){
 			printf("La cadena no tiene 4 digitos\n");
 			control_errores=1;
-		}else{
-			for(i=0;i<strlen(cadena);i++){
-				if(cadena[i]>='0' && cadena[i]<='9'){
-				}else{	
-				printf("%c no es digito\n", cadena[i]);
-				control_errores=1;
-				}
+		}
+		for(i=0;i<4;i++){
+			if(cadena[i]>='0' && cadena[i]<='9'){
+			}
+			else{
+			printf("%c no es digito\n", cadena[i]);
+			control_errores=1;
 			}
 		}
 
@@ -56,11 +50,11 @@ for(contador=1;contador<=dificultad;contador++){
 		cadena_int[j]=cadena[j]-48;
 		
 		
-		if(cadena_int[j]==n_aleat[j]){
+		if(cadena_int[j]==numero[j]){
 			printf("*");
 			correcto++;
 		}
-		if(cadena_int[j]!=n_aleat[j]){
+		if(cadena_int[j]!=numero[j]){
 			printf("_");
 		}
 
@@ -73,24 +67,16 @@ for(contador=1;contador<=dificultad;contador++){
 		printf("Solucionado tras %d intentos.\n",contador);
 		if(contador<3){
 			printf("Felicidades, has conseguido una puntuacion de: 10 pts.\n");
-			fclose(pf);
-			return;
 		}else if(contador>11){
 			printf("Puntuacion obtenida: 0.\n");
-			fclose(pf);
-			return;
+
 		}else{
 			float puntuacion=10-10*(contador-3)/9;
 			printf("Puntuacion obtenida: %.2f.\n",puntuacion);
-			fclose(pf);
-			return;
 		}
-	
+		return;
 	}
-	
-}
-	fclose(pf);
 
-	return;
 }
 
+}

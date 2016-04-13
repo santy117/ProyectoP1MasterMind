@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "jugar_partida.h"
+#include "partida_prueba.h"
 
 
 void caratula(){
@@ -30,6 +31,7 @@ int main(int argc,char* argv[]){
 
 	char respuesta;
 	char numero;
+	int dificultad=100;
 
 	do{
 	caratula();
@@ -41,15 +43,23 @@ int main(int argc,char* argv[]){
 			case '1':
 					system("clear");
 					printf("-Has seleccionado jugar partida.\n");
-					partida();
+					partida(dificultad);
 					break;
 			case '2':
 					system("clear");
 					printf("-Has seleccionado jugar partida de prueba.\n");
+					partida_prueba();
 					break;
 			case '3':
 					system("clear");
 					printf("-Has seleccionado establecer nivel de dificultad.\n");
+					do{
+					printf("Introduzca el nivel de dificultad(De 1 a 100 intentos):\n");
+					scanf("%i",&dificultad);
+						if(dificultad<1 || dificultad>100){
+							printf("No has introducido un valor correcto.Repita el numero.\n");
+						}
+					}while(dificultad<1 || dificultad>100);
 					break;
 			case '4':
 					system("clear");
@@ -59,9 +69,9 @@ int main(int argc,char* argv[]){
 					printf("Quieres salir del programa?(s/n)\n");
 					scanf(" %c",&respuesta);
 					if(respuesta=='s'|| respuesta=='S'){
-						printf("Has seleccionado s. \n");
+						printf("Saliendo del programa... \n");
 						}else if(respuesta=='n'||respuesta=='N'){
-						printf("Has seleccionado n. \n");
+						printf("Volviendo al menu... \n");
 						}else{
 							printf("Caracter incorrecto. \n)");
 							}
