@@ -14,7 +14,7 @@ void partida(int dificultad){
 	//Creacion de fichero
 	FILE *pf;
 	pf=fopen("partidas.txt","a");
-	fprintf(pf,"Probando...");
+	
 
 	// Genera un numero aleatorio de 4 digitos que no se repiten entre ellos.
 		do{
@@ -26,8 +26,10 @@ void partida(int dificultad){
 	printf("Numero secreto: ");
 	for(int i=0;i<4;i++){
 		printf(" %i",n_aleat[i]); //para double %e o %d
+		fprintf(pf," %i",n_aleat[i]);
 	}
 	printf("\n\n");
+	fprintf(pf,"\n\n");
 
 // Control de errores a la hora de introducir una cadena
 for(contador=1;contador<=dificultad;contador++){
@@ -52,36 +54,41 @@ for(contador=1;contador<=dificultad;contador++){
 	// Aciertos o fallos de la seleccion de numero
 	}while(control_errores==1);
 	printf("Numero secreto:    <");
+	fprintf(pf,"Numero secreto:    <");
 	for(int j=0;j<4;j++){
 		cadena_int[j]=cadena[j]-48;
 		
 		
 		if(cadena_int[j]==n_aleat[j]){
 			printf("*");
+			fprintf(pf,"*");
 			correcto++;
 		}
 		if(cadena_int[j]!=n_aleat[j]){
 			printf("_");
+			fprintf(pf,"_");
 		}
-
 	}
 	printf(">.\n");
-
+	fprintf(pf,">.\n");
 	//Puntuacion del juego
 	if (correcto==4){
 
 		printf("Solucionado tras %d intentos.\n",contador);
 		if(contador<3){
 			printf("Felicidades, has conseguido una puntuacion de: 10 pts.\n");
+			fprintf(pf,"Puntuacion:10pts.\n");
 			fclose(pf);
 			return;
 		}else if(contador>11){
 			printf("Puntuacion obtenida: 0.\n");
+			fprintf(pf,"Puntuacion:0pts.\n");
 			fclose(pf);
 			return;
 		}else{
 			float puntuacion=10-10*(contador-3)/9;
 			printf("Puntuacion obtenida: %.2f.\n",puntuacion);
+			fprintf(pf,"Puntuacion: %.2f pts.\n",puntuacion);
 			fclose(pf);
 			return;
 		}

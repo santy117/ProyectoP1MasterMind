@@ -3,6 +3,7 @@
 #include <string.h>
 #include "jugar_partida.h"
 #include "partida_prueba.h"
+#include "lista_partidas.h"
 
 
 void caratula(){
@@ -64,6 +65,7 @@ int main(int argc,char* argv[]){
 			case '4':
 					system("clear");
 					printf("-Has seleccionado listar el historial de partidas.\n");
+					lista_partidas();
 					break;
 			case '0':
 					printf("Quieres salir del programa?(s/n)\n");

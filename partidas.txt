@@ -1,1 +1,19 @@
-Probando...Probando...Probando...Probando...Probando...Probando...Probando...Probando...
+ 0 9 2 6
+
+Numero secreto:    <*___>.
+Numero secreto:    <__*_>.
+Numero secreto:    <____>.
+Numero secreto:    <____>.
+Numero secreto:    <____>.
+Numero secreto:    <____>.
+Numero secreto:    <****>.
+Puntuacion: 6.00 pts.
+ 7 2 3 8
+
+Numero secreto:    <_**_>.
+Numero secreto:    <****>.
+Puntuacion:10pts.
+ 0 8 1 4
+
+Numero secreto:    <****>.
+Puntuacion:10pts.
