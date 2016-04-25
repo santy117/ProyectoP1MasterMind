@@ -3,4 +3,4 @@
 #include <stdlib.h>
 #include <string.h>
 
-void partida(int dificultad);
+void partida(int modo, int dificultad);

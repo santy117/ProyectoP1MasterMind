@@ -2,16 +2,18 @@
 
 void lista_partidas(){
  FILE *pf;
- 
+ char escribir[13];
  pf=fopen("partidas.txt","r");
+
  
  if( pf==NULL ){
   printf("Error al abrir el fichero\n");
   
- }else{
-  while( !feof(pf) ){
-   printf("%c",getc(pf));
-	}
-  }
+ }
+ while(feof(pf)==0){
+ 	while(fgets(escribir,13,pf)){
+ 		printf("%s",escribir);
+ 	}
+ }
  return;
 }
