@@ -32,7 +32,7 @@ void caratula(){
 
 int main(int argc,char* argv[]){
 	int i;
-	char respuesta;
+	char respuesta='n';
 	char numero[2];
 	int num;
 	int opvalida=1;
@@ -94,15 +94,7 @@ int main(int argc,char* argv[]){
 					lista_partidas();
 					break;
 			case 0:
-					printf("Quieres salir del programa?(s/n)\n");
-					scanf(" %c",&respuesta);
-					if(respuesta=='s'|| respuesta=='S'){
-						printf("Saliendo del programa... \n");
-						}else if(respuesta=='n'||respuesta=='N'){
-						printf("Volviendo al menu... \n");
-						}else{
-							printf("Caracter incorrecto. \n)");
-							}
+					respuesta='s';
 					break;
 			default:
 					system("clear");

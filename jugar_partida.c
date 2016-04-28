@@ -8,7 +8,7 @@
 void partida(int modo, int dificultad){
 	char cadena[5];
 	int i,j,contador,correcto=0;
-	int control_errores;
+	int control_errores,contador_ast=0,contador_barras=0;
 	int n_aleat[5],cadena_int[5];
 	srand(time(NULL));
 	//Creacion de fichero
@@ -23,9 +23,8 @@ if(modo==1){
 		 } // genera numeros de -10 a 10
 		}while(n_aleat[0]==n_aleat[1] || n_aleat[0]==n_aleat[2] || n_aleat[0]==n_aleat[3] || n_aleat[1]==n_aleat[2] || n_aleat[1]==n_aleat[3] || n_aleat[2]==n_aleat[3]);
 	
-	printf("Numero secreto: ");
+	fprintf(pf,"Numero secreto: ");
 	for(i=0;i<4;i++){
-		printf(" %i",n_aleat[i]); //para double %e o %d
 		fprintf(pf," %i",n_aleat[i]);
 	}
 	printf("\n\n");
@@ -69,21 +68,42 @@ for(contador=1;contador<=dificultad;contador++){
 
 	// Aciertos o fallos de la seleccion de numero
 	}while(control_errores==1);
+	
 	printf("Numero secreto:    <");
 	fprintf(pf,"Numero secreto:    <");
+	//Contador de * y /
+	char cad_final[5]="____";
+	contador_ast=0;   //Reseteo de variables
+	contador_barras=0;
+
 	for(j=0;j<4;j++){
 		cadena_int[j]=cadena[j]-48;
-		
-		
 		if(cadena_int[j]==n_aleat[j]){
-			printf("*");
-			fprintf(pf,"*");
+			contador_ast++;
 			correcto++;
 		}
-		if(cadena_int[j]!=n_aleat[j]){
-			printf("_");
-			fprintf(pf,"_");
+	}
+	for(j=0;j<4;j++){
+		cadena_int[j]=cadena[j]-48;
+		for(i=0;i<4;i++){
+			if(cadena_int[j]==n_aleat[i]){
+			contador_barras++;
 		}
+		}
+		
+	}
+	
+	for(j=0;j<contador_ast;j++){
+		cad_final[j]='*';
+	}
+	for(j=contador_ast;j<contador_barras;j++){
+		cad_final[j]='|';
+	}
+
+	
+	for(j=0;j<4;j++){
+		printf("%c",cad_final[j]);
+		fprintf(pf,"%c",cad_final[j]);
 	}
 	printf(">.\n");
 	fprintf(pf,">.\n");
@@ -113,8 +133,8 @@ for(contador=1;contador<=dificultad;contador++){
 		}
 	
 	}
-	
 }	
+	
 fprintf(pf,"-----------\n");
 fclose(pf);
 
