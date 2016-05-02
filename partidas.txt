@@ -1,16 +1,13 @@
-Numero secreto:  3 7 8 4
+ 1 2 3 4
 
-Numero secreto:    <*|__>.
-Numero secreto:    <||__>.
-Numero secreto:    <|||_>.
-Numero secreto:    <||__>.
-Numero secreto:    <**|_>.
-Numero secreto:    <**||>.
-Numero secreto:    <****>.
-Puntuacion: 6.00 pts.
+Su apuesta: 1234  <****>.
+Puntuacion:10pts.
 -----------
-Numero secreto:  7 3 8 1
+Numero secreto:  0 7 2 5
 
-Numero secreto:    <||__>.
-Numero secreto:    <*___>.
+Su apuesta: 1234  <|___>.
+Su apuesta: 4567  <||__>.
+Su apuesta: 4789  <*___>.
+Su apuesta: 3756  <*|__>.
+Su apuesta: 5789  <*|__>.
 -----------

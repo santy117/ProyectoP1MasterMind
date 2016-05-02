@@ -51,7 +51,8 @@ for(contador=1;contador<=dificultad;contador++){
 		correcto=0;
 		control_errores=0;
 		printf("Introduzca una cadena de 4 digitos[_ _ _ _]\n");
-		scanf("%s", cadena);
+		scanf(" %s",cadena);
+		getchar();
 		if(cadena[4]!='\0'){
 			printf("La cadena no tiene 4 digitos\n");
 			control_errores=1;
@@ -69,8 +70,8 @@ for(contador=1;contador<=dificultad;contador++){
 	// Aciertos o fallos de la seleccion de numero
 	}while(control_errores==1);
 	
-	printf("Numero secreto:    <");
-	fprintf(pf,"Numero secreto:    <");
+	printf("Su apuesta: %s  <",cadena);
+	fprintf(pf,"Su apuesta: %s  <",cadena);
 	//Contador de * y /
 	char cad_final[5]="____";
 	contador_ast=0;   //Reseteo de variables

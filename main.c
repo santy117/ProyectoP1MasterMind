@@ -10,7 +10,7 @@
 void caratula(){
 	int i,j;
 	for (i=0;i<3;i++){
-		for (int j=0;j<105;j++){
+		for (j=0;j<105;j++){
 			printf("*");
 
 		}
@@ -33,7 +33,7 @@ void caratula(){
 int main(int argc,char* argv[]){
 	int i;
 	char respuesta='n';
-	char numero[2];
+	char numero[10];
 	int num;
 	int opvalida=1;
 	int dificultad=100,difaux=100;

@@ -1,4 +1,4 @@
-CC = gcc -Wall
+CC = gcc -g -Wall
 LIBS = -lm
 
 all: main
