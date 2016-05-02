@@ -1,24 +1,16 @@
+Numero secreto:  3 7 8 4
 
- 6 8 1 9
-
-Numero secreto:    <*|||>.
+Numero secreto:    <*|__>.
+Numero secreto:    <||__>.
+Numero secreto:    <|||_>.
+Numero secreto:    <||__>.
+Numero secreto:    <**|_>.
 Numero secreto:    <**||>.
-Numero secreto:    <***_>.
-Numero secreto:    <*|||>.
-Numero secreto:    <|___>.
 Numero secreto:    <****>.
-Puntuacion: 7.00 pts.
+Puntuacion: 6.00 pts.
 -----------
- 1 3 7 2
+Numero secreto:  7 3 8 1
 
-Numero secreto:    <*||_>.
-Numero secreto:    <****>.
-Puntuacion:10pts.
------------
-Numero secreto:  8 3 9 0
-
-Numero secreto:    <|___>.
-Numero secreto:    <|___>.
-Numero secreto:    <****>.
-Puntuacion: 10.00 pts.
+Numero secreto:    <||__>.
+Numero secreto:    <*___>.
 -----------

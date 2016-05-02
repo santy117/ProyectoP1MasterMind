@@ -133,11 +133,13 @@ for(contador=1;contador<=dificultad;contador++){
 		}
 	
 	}
-}	
 	
+}
+printf("No lo has solucionado en el numero de intentos disponibles.\n");
 fprintf(pf,"-----------\n");
 fclose(pf);
 
 	return;
+
 }
 

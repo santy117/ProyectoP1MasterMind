@@ -32,7 +32,7 @@ int nivelDificultad(int nivelActual)
 			nivelValido=0;
 		}
 	}
-	if(nivelValido){
+	if(!nivelValido){
 		fprintf(stdout,"Nivel seleccionado no valido.\n");
 
 	}
