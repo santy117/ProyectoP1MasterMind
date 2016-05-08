@@ -1,13 +1,5 @@
+-----------
  1 2 3 4
 
-Su apuesta: 1234  <****>.
+ <****>.
 Puntuacion:10pts.
------------
-Numero secreto:  0 7 2 5
-
-Su apuesta: 1234  <|___>.
-Su apuesta: 4567  <||__>.
-Su apuesta: 4789  <*___>.
-Su apuesta: 3756  <*|__>.
-Su apuesta: 5789  <*|__>.
------------

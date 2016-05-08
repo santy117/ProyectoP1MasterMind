@@ -14,7 +14,7 @@ void partida(int modo, int dificultad){
 	//Creacion de fichero
 	FILE *pf;
 	pf=fopen("partidas.txt","a");
-	
+	fprintf(pf,"-----------\n");
 if(modo==1){
 	// Genera un numero aleatorio de 4 digitos que no se repiten entre ellos.
 		do{
@@ -50,10 +50,14 @@ for(contador=1;contador<=dificultad;contador++){
 	do{
 		correcto=0;
 		control_errores=0;
-		printf("Introduzca una cadena de 4 digitos[_ _ _ _]\n");
+		printf("Introduzca una cadena de 4 digitos diferentes + ENTER[_ _ _ _]\n");
 		scanf(" %s",cadena);
 		getchar();
-		if(cadena[4]!='\0'){
+		if(cadena[0]==cadena[1] || cadena[0]==cadena[2] || cadena[0]==cadena[3] || cadena[1]==cadena[2] || cadena[1]==cadena[3] || cadena[2]==cadena[3]){
+			printf("La cadena no puede tener numeros iguales\n");
+			control_errores=1;
+			strcpy(cadena,"");
+		}else if(cadena[4]!='\0'){
 			printf("La cadena no tiene 4 digitos\n");
 			control_errores=1;
 			strcpy(cadena,"");
@@ -71,7 +75,7 @@ for(contador=1;contador<=dificultad;contador++){
 	}while(control_errores==1);
 	
 	printf("Su apuesta: %s  <",cadena);
-	fprintf(pf,"Su apuesta: %s  <",cadena);
+	fprintf(pf," <");
 	//Contador de * y /
 	char cad_final[5]="____";
 	contador_ast=0;   //Reseteo de variables
@@ -115,20 +119,20 @@ for(contador=1;contador<=dificultad;contador++){
 		if(contador<3){
 			printf("Felicidades, has conseguido una puntuacion de: 10 pts.\n");
 			fprintf(pf,"Puntuacion:10pts.\n");
-			fprintf(pf,"-----------\n");
+			
 			fclose(pf);
 			return;
 		}else if(contador>11){
 			printf("Puntuacion obtenida: 0.\n");
 			fprintf(pf,"Puntuacion:0pts.\n");
-			fprintf(pf,"-----------\n");
+		
 			fclose(pf);
 			return;
 		}else{
 			float puntuacion=10-10*(contador-3)/9;
 			printf("Puntuacion obtenida: %.2f.\n",puntuacion);
 			fprintf(pf,"Puntuacion: %.2f pts.\n",puntuacion);
-			fprintf(pf,"-----------\n");
+			
 			fclose(pf);
 			return;
 		}
@@ -137,7 +141,7 @@ for(contador=1;contador<=dificultad;contador++){
 	
 }
 printf("No lo has solucionado en el numero de intentos disponibles.\n");
-fprintf(pf,"-----------\n");
+
 fclose(pf);
 
 	return;
