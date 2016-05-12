@@ -6,7 +6,7 @@
 #include <time.h>
 
 void partida(int modo, int dificultad){
-	char cadena[5];
+	char cadena[255];
 	int contador_aux;
 	int i,j,contador,correcto=0;
 	int control_errores,contador_ast=0,contador_barras=0;
