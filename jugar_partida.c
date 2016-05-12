@@ -7,6 +7,7 @@
 
 void partida(int modo, int dificultad){
 	char cadena[5];
+	int contador_aux;
 	int i,j,contador,correcto=0;
 	int control_errores,contador_ast=0,contador_barras=0;
 	int n_aleat[5],cadena_int[5];
@@ -14,7 +15,7 @@ void partida(int modo, int dificultad){
 	//Creacion de fichero
 	FILE *pf;
 	pf=fopen("partidas.txt","a");
-	fprintf(pf,"-----------\n");
+	fprintf(pf,"------------\n");
 if(modo==1){
 	// Genera un numero aleatorio de 4 digitos que no se repiten entre ellos.
 		do{
@@ -23,24 +24,20 @@ if(modo==1){
 		 } // genera numeros de -10 a 10
 		}while(n_aleat[0]==n_aleat[1] || n_aleat[0]==n_aleat[2] || n_aleat[0]==n_aleat[3] || n_aleat[1]==n_aleat[2] || n_aleat[1]==n_aleat[3] || n_aleat[2]==n_aleat[3]);
 	
-	fprintf(pf,"Numero secreto: ");
 	for(i=0;i<4;i++){
 		fprintf(pf," %i",n_aleat[i]);
 	}
 	printf("\n\n");
 	fprintf(pf,"\n\n");
 }else{
-	printf("Esto es una partida de prueba, que genera un numero aleatorio predefinido.\n");
-	
+		
 		for(i=0;i<4;i++){
 			n_aleat[i]=(i+1); 
 		 }
-	
-	printf("Numero secreto: ");
-	for(i=0;i<4;i++){
-		printf(" %i",n_aleat[i]); //para double %e o %d
+		 for(i=0;i<4;i++){
 		fprintf(pf," %i",n_aleat[i]);
-	}
+		}
+	
 	printf("\n\n");
 	fprintf(pf,"\n\n");
 }
@@ -50,22 +47,22 @@ for(contador=1;contador<=dificultad;contador++){
 	do{
 		correcto=0;
 		control_errores=0;
-		printf("Introduzca una cadena de 4 digitos diferentes + ENTER[_ _ _ _]\n");
+		printf("Escriba un número de 4 dígitos diferentes + ENTER:\n");
 		scanf(" %s",cadena);
 		getchar();
 		if(cadena[0]==cadena[1] || cadena[0]==cadena[2] || cadena[0]==cadena[3] || cadena[1]==cadena[2] || cadena[1]==cadena[3] || cadena[2]==cadena[3]){
-			printf("La cadena no puede tener numeros iguales\n");
+			printf("Los dígitos de la apuesta deben ser diferentes\n");
 			control_errores=1;
 			strcpy(cadena,"");
 		}else if(cadena[4]!='\0'){
-			printf("La cadena no tiene 4 digitos\n");
+			printf("La longitud de la apuesta es incorrecta\n");
 			control_errores=1;
 			strcpy(cadena,"");
 		}else{
 			for(i=0;i<4;i++){
 				if(cadena[i]>='0' && cadena[i]<='9'){
 				}else{	
-				printf("%c no es digito\n", cadena[i]);
+				printf("La apuesta sólo debe contener dígitos\n");
 				control_errores=1;
 				}
 			}
@@ -74,8 +71,8 @@ for(contador=1;contador<=dificultad;contador++){
 	// Aciertos o fallos de la seleccion de numero
 	}while(control_errores==1);
 	
-	printf("Su apuesta: %s  <",cadena);
-	fprintf(pf," <");
+	printf("Su apuesta es: %s  <",cadena);
+	fprintf(pf,"%s  <",cadena);
 	//Contador de * y /
 	char cad_final[5]="____";
 	contador_ast=0;   //Reseteo de variables
@@ -110,28 +107,37 @@ for(contador=1;contador<=dificultad;contador++){
 		printf("%c",cad_final[j]);
 		fprintf(pf,"%c",cad_final[j]);
 	}
-	printf(">.\n");
-	fprintf(pf,">.\n");
+	printf(">\n");
+	fprintf(pf,">\n");
 	//Puntuacion del juego
 	if (correcto==4){
 
-		printf("Solucionado tras %d intentos.\n",contador);
 		if(contador<3){
-			printf("Felicidades, has conseguido una puntuacion de: 10 pts.\n");
-			fprintf(pf,"Puntuacion:10pts.\n");
+			printf("Ha descubierto el código secreto (");
+			for(i=0;i<4;i++){
+				printf("%i",n_aleat[i]);
+			}
+			printf(") en %i intentos\n",contador);
+			printf("Ha obtenido 10.00 puntos\n");
+			fprintf(pf,"%i \n10.00\n",contador);
 			
 			fclose(pf);
 			return;
 		}else if(contador>11){
 			printf("Puntuacion obtenida: 0.\n");
-			fprintf(pf,"Puntuacion:0pts.\n");
+			fprintf(pf,"%i \n0.00\n",contador);
 		
 			fclose(pf);
 			return;
 		}else{
 			float puntuacion=10-10*(contador-3)/9;
-			printf("Puntuacion obtenida: %.2f.\n",puntuacion);
-			fprintf(pf,"Puntuacion: %.2f pts.\n",puntuacion);
+			printf("Ha descubierto el código secreto (");
+			for(i=0;i<4;i++){
+				printf("%i",n_aleat[i]);
+			}
+			printf(") en %i intentos\n",contador);
+			printf("Ha obtenido %.2f puntos\n",puntuacion);
+			fprintf(pf,"%i \n10.00\n",contador);
 			
 			fclose(pf);
 			return;
@@ -140,8 +146,13 @@ for(contador=1;contador<=dificultad;contador++){
 	}
 	
 }
-printf("No lo has solucionado en el numero de intentos disponibles.\n");
-
+contador_aux=contador-1;
+printf("NO ha descubierto el código secreto (");
+for(i=0;i<4;i++){
+	printf("%i",n_aleat[i]);
+}
+printf(") tras %i intentos\n",contador_aux);
+printf("Ha obtenido 0.00 puntos\n");
 fclose(pf);
 
 	return;

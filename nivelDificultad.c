@@ -14,7 +14,7 @@ int nivelDificultad(int nivelActual)
 
 	do{
 		nivelValido=1;
-		fprintf(stdout,"Elige un nuevo nivel [1..100]: ");
+		fprintf(stdout,"Elige nuevo nivel [1..100]: ");
 		if (fgets(slevel,10,stdin)==NULL){
 			nivelValido=0;
 			continue;
@@ -33,7 +33,7 @@ int nivelDificultad(int nivelActual)
 		}
 	}
 	if(!nivelValido){
-		fprintf(stdout,"Nivel seleccionado no valido.\n");
+		fprintf(stdout,"Nivel seleccionado no válido.\n");
 
 	}
 	}while(!nivelValido);

@@ -10,16 +10,16 @@
 void caratula(){
 	int i,j;
 	for (i=0;i<3;i++){
-		for (j=0;j<105;j++){
+		for (j=0;j<80;j++){
 			printf("*");
 
 		}
 		printf("\n");
 	}
-	printf("********************************		MASTER	MIND		*********************************\n");
+	printf("********************************  MASTER MIND  *********************************\n");
 
 	for (i=0;i<3;i++){
-		for (j=0;j<105;j++){
+		for (j=0;j<80;j++){
 			printf("*");
 
 		}
@@ -42,7 +42,7 @@ int main(int argc,char* argv[]){
 	
 	do{
 	opvalida=1;
-	printf("\n1)Jugar partida\n2)Jugar partida de prueba\n3)Establecer nivel de dificultad\n4)Listar historial de partidas\n0)Salir del programa\n\nSiguiente operacion?\n");
+	printf("\n1) Jugar partida\n2) Jugar partida de prueba\n3) Establecer nivel de dificultad\n4) Listar historial de partidas\n0) Salir\n\n¿Siguiente operación?\n");
 	if (fgets(numero,10,stdin)==NULL){
 			opvalida=0;
 			continue;
@@ -65,17 +65,16 @@ int main(int argc,char* argv[]){
 		switch(num){
 			case 1:
 					
-					printf("-Has seleccionado jugar partida.\n");
+					
 					partida(1,dificultad);
 					break;
 			case 2:
-					system("clear");
-					printf("-Has seleccionado jugar partida de prueba.\n");
+					
 					partida(2,dificultad);
 					break;
 			case 3:
 					
-					printf("-Has seleccionado establecer nivel de dificultad.\n");
+					
 					difaux=nivelDificultad(dificultad);
 					dificultad=difaux;
 					// do{
@@ -90,7 +89,7 @@ int main(int argc,char* argv[]){
 					break;
 			case 4:
 					
-					printf("-Has seleccionado listar el historial de partidas.\n");
+					
 					lista_partidas();
 					break;
 			case 0:

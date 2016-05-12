@@ -7,7 +7,7 @@ void lista_partidas(){
 
  
  if( pf==NULL ){
-  printf("Error al abrir el fichero\n");
+  printf("No puedo leer el fichero de historial (partidas.txt)\n");
   return;
  }
  while(feof(pf)==0){
