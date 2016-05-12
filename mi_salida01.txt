@@ -36,9 +36,9 @@ Nivel seleccionado: 10
 
 
 Escriba un número de 4 dígitos diferentes + ENTER:
-Los dígitos de la apuesta deben ser diferentes
+La longitud de la apuesta es incorrecta
 Escriba un número de 4 dígitos diferentes + ENTER:
-Los dígitos de la apuesta deben ser diferentes
+La longitud de la apuesta es incorrecta
 Escriba un número de 4 dígitos diferentes + ENTER:
 Los dígitos de la apuesta deben ser diferentes
 Escriba un número de 4 dígitos diferentes + ENTER:
@@ -95,6 +95,8 @@ Opcion no valida.
  1 2 3 4
 
 5678  <____>
+1 
+0.00
 
 1) Jugar partida
 2) Jugar partida de prueba
@@ -123,6 +125,8 @@ Ha obtenido 10.00 puntos
  1 2 3 4
 
 5678  <____>
+1 
+0.00
 ------------
  1 2 3 4
 

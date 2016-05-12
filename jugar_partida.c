@@ -50,12 +50,12 @@ for(contador=1;contador<=dificultad;contador++){
 		printf("Escriba un número de 4 dígitos diferentes + ENTER:\n");
 		scanf(" %s",cadena);
 		getchar();
-		if(cadena[0]==cadena[1] || cadena[0]==cadena[2] || cadena[0]==cadena[3] || cadena[1]==cadena[2] || cadena[1]==cadena[3] || cadena[2]==cadena[3]){
-			printf("Los dígitos de la apuesta deben ser diferentes\n");
+		if(cadena[4]!='\0'){
+		     printf("La longitud de la apuesta es incorrecta\n");
 			control_errores=1;
 			strcpy(cadena,"");
-		}else if(cadena[4]!='\0'){
-			printf("La longitud de la apuesta es incorrecta\n");
+		}else if(cadena[0]==cadena[1] || cadena[0]==cadena[2] || cadena[0]==cadena[3] || cadena[1]==cadena[2] || cadena[1]==cadena[3] || cadena[2]==cadena[3]){
+			printf("Los dígitos de la apuesta deben ser diferentes\n");
 			control_errores=1;
 			strcpy(cadena,"");
 		}else{
@@ -130,14 +130,15 @@ for(contador=1;contador<=dificultad;contador++){
 			fclose(pf);
 			return;
 		}else{
-			float puntuacion=10-10*(contador-3)/9;
+		     float intentos_float=contador;
+			float puntuacion=10-10*(intentos_float-3)/9;
 			printf("Ha descubierto el código secreto (");
 			for(i=0;i<4;i++){
 				printf("%i",n_aleat[i]);
 			}
 			printf(") en %i intentos\n",contador);
 			printf("Ha obtenido %.2f puntos\n",puntuacion);
-			fprintf(pf,"%i \n10.00\n",contador);
+			fprintf(pf,"%i \n%.2f\n",contador,puntuacion);
 			
 			fclose(pf);
 			return;
@@ -153,9 +154,9 @@ for(i=0;i<4;i++){
 }
 printf(") tras %i intentos\n",contador_aux);
 printf("Ha obtenido 0.00 puntos\n");
+fprintf(pf,"%i \n0.00\n",contador_aux);
 fclose(pf);
 
 	return;
 
 }
-
