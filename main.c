@@ -57,14 +57,14 @@ int main(int argc,char* argv[]){
 		numero[strlen(numero)-1]='\0';
 		num=atoi(numero);
 	}else{
-		system("clear");
+		
 		fprintf(stdout,"Opcion no valida.\n");
 	}
 	}while(!opvalida);
 	
 		switch(num){
 			case 1:
-					system("clear");
+					
 					printf("-Has seleccionado jugar partida.\n");
 					partida(1,dificultad);
 					break;
@@ -74,7 +74,7 @@ int main(int argc,char* argv[]){
 					partida(2,dificultad);
 					break;
 			case 3:
-					system("clear");
+					
 					printf("-Has seleccionado establecer nivel de dificultad.\n");
 					difaux=nivelDificultad(dificultad);
 					dificultad=difaux;
@@ -89,7 +89,7 @@ int main(int argc,char* argv[]){
 					// dificultad=difaux;
 					break;
 			case 4:
-					system("clear");
+					
 					printf("-Has seleccionado listar el historial de partidas.\n");
 					lista_partidas();
 					break;
@@ -97,7 +97,7 @@ int main(int argc,char* argv[]){
 					respuesta='s';
 					break;
 			default:
-					system("clear");
+					
 					printf("Opcion no valida.\n");
 					break;
 		}

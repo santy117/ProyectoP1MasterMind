@@ -8,7 +8,7 @@ void lista_partidas(){
  
  if( pf==NULL ){
   printf("Error al abrir el fichero\n");
-  
+  return;
  }
  while(feof(pf)==0){
  	while(fgets(escribir,13,pf)){
